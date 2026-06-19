@@ -11,6 +11,7 @@ dotenv.config()
 const app = express()
 
 const PORT = process.env.PORT
+const MONGODB_URL = process.env.MONGODB_URL
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -23,7 +24,7 @@ app.use("/api/v1/course",CourseRouter)
 
 
 app.listen(PORT,function(){
-    ConnectionDB("mongodb+srv://mohdashrafhassan098_db_user:VZQkt2oBov57DjYq@cluster0.djdbfdf.mongodb.net/coursera-prac")
+    ConnectionDB(MONGODB_URL)
 
     console.log(`server is running on PORT : ${PORT}`);
     
